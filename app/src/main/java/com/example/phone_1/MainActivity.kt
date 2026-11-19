@@ -77,7 +77,7 @@ fun InitialsContainer(modifier: Modifier = Modifier) {
 @Composable
 fun MyButtonPreview() {
     Phone_1Theme() {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+        Scaffold(modifier = Modifier.fillMaxSize()) {
             InitialsContainer()
         }
     }
