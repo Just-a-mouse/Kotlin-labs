@@ -13,13 +13,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.phone_1.ui.theme.Phone_1Theme
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 class MainActivity : ComponentActivity() {
@@ -36,23 +44,33 @@ class MainActivity : ComponentActivity() {
     }
 }
 @Composable
-fun MyButton(modifier: Modifier = Modifier) {
-    Button(
-        onClick = { },
-        modifier = modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        border = BorderStroke(2.dp, Color.Gray),
-        elevation = ButtonDefaults.buttonElevation(defaultElevation = 4.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.LightGray,
-            contentColor = Color.Black
-        )
+fun InitialsContainer(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(100.dp)
+            .background(Color.Gray),
+        contentAlignment = Alignment.Center
     ) {
-        Text(text = "Нажми на меня")
+        Box(
+            modifier = Modifier
+                .padding(vertical = 16.dp)
+                .fillMaxHeight()
+                .aspectRatio(1f)
+                .background(Color.Cyan, CircleShape),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "ИМ",
+                fontSize = 24.sp,
+                color = Color.Gray
+            )
+        }
     }
 }
+
 @Preview(
-    name = "ButtonPreview - portrait",
+    name = "qwe",
     showSystemUi = false,
     device = "spec:width=891dp,height=411dp,orientation=portrait"
 )
@@ -60,7 +78,7 @@ fun MyButton(modifier: Modifier = Modifier) {
 fun MyButtonPreview() {
     Phone_1Theme() {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            MyButton(modifier = Modifier.padding(innerPadding).padding(16.dp))
+            InitialsContainer(modifier = Modifier.padding(innerPadding))
         }
     }
 }
